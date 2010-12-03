@@ -65,10 +65,10 @@ Inspired by: http://www.jqeasy.com/jquery-character-counter/
         }
         
         $this
-  				.bind('keydown keyup keypress', count)
-  				.bind('focus paste', function(){setTimeout(count);});
-  			
-  			setCount();
+          .bind('keydown keyup keypress', count)
+          .bind('focus paste', function(){setTimeout(count);});
+        
+        setCount();
       });      
     }
   });
