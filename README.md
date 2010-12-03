@@ -40,7 +40,6 @@ A ridiculously minimal JavaScript counter for jQuery.
   * maxClass (default: 'maximum') — CSS class to assign to $(characterCountId) when maxChars is reached
   * callback (default: function(){}) — Called at the *end* of each event handler.
   
-## Also
+## Copyright
 
-
-  
+Copyright &copy; 2010 Rob Sterner. See LICENSE for details.

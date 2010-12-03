@@ -1,4 +1,5 @@
 /******************************************************
+
 Copyright (c) 2010, Rob Sterner
 
 Permission is hereby granted, free of charge, to any person
@@ -25,27 +26,28 @@ OTHER DEALINGS IN THE SOFTWARE.
 Inspired by: http://www.jqeasy.com/jquery-character-counter/
 
 *******************************************************/
-(function(window, document, $, undefined){
+(function($){
   $.fn.extend({
-    countr: function(options) {  
+    
+    countr: function(_options) {  
       return this.each(function(){
         var $this = $(this)
           , options = $.extend(
             { maxChars: 140
-            , characterCountId: '#character_count'
+            , counterSuffix: '_count'
             , warnAt: 110
             , warnClass: 'warning'
             , maxClass: 'maximum'
             , callback: function(){}
             }
-            , options)
-          , $characterCount = $(options.characterCountId);
+            , _options)
+          , $characterCount = $('#' + this.id + options.counterSuffix);
         
         function setCount(){
           $characterCount.html(options.maxChars - $this.val().length);
         }
         
-        function count(event) {          
+        function count(event) {       
           if($this.val().length >= options.maxChars)
             $this.val($this.val().substr(0, options.maxChars));
           
@@ -70,4 +72,4 @@ Inspired by: http://www.jqeasy.com/jquery-character-counter/
       });      
     }
   });
-})(window, window.document, jQuery);
+})(jQuery);
