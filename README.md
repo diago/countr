@@ -22,7 +22,7 @@ A ridiculously minimal JavaScript counter for jQuery.
       </head>
       <body>
         <input type="text" id="lol" />
-        <span id="character_count"></span>
+        <span id="lol_count"></span>
       </body>
     </html>
 
@@ -31,7 +31,7 @@ A ridiculously minimal JavaScript counter for jQuery.
 #### Self-explanatory
   
   * maxChars (default: 140)
-  * characterCountId (default: '#character_count')
+  * counterSuffix (default: '_count')
   
 #### Etc.
   
