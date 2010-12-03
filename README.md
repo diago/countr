@@ -35,9 +35,9 @@ A ridiculously minimal JavaScript counter for jQuery.
   
 #### Etc.
   
-  * warnAt (default: 110) — Give $(characterCountId) the `warnClass` at this many characters
-  * warnClass (default: 'warning') — CSS class to assign to $(characterCountId) when warnAt is reached
-  * maxClass (default: 'maximum') — CSS class to assign to $(characterCountId) when maxChars is reached
+  * warnAt (default: 110) — Give the count the `warnClass` at this many characters
+  * warnClass (default: 'warning') — CSS class to assign to the count when warnAt is reached
+  * maxClass (default: 'maximum') — CSS class to assign to the count when maxChars is reached
   * callback (default: function(){}) — Called at the *end* of each event handler.
   
 ## Copyright
