@@ -33,37 +33,42 @@ Inspired by: http://www.jqeasy.com/jquery-character-counter/
       return this.each(function(){
         var $this = $(this)
           , options = $.extend(
-            { maxChars: 140
-            , counterSuffix: '_count'
-            , warnAt: 110
-            , warnClass: 'warning'
-            , maxClass: 'maximum'
-            , callback: function(){}
+            { maxChars      : 140
+            , countr        : '_countr'
+            , warnAt        : 110
+            , warnClass     : 'warning'
+            , onWarn        : function(){}
+            , maxClass      : 'maximum'
+            , onMax         : function(){}
+            , callback      : function(){}
+            , hardLimit     : true
             }
             , _options)
-          , $characterCount = $('#' + this.id + options.counterSuffix);
+          , $characterCount = options.countr instanceof jQuery
+              ? options.countr
+              : $('#' + $this.attr('name') + options.countr);
         
         function setCount(){
           $characterCount.html(options.maxChars - $this.val().length);
         }
         
         function count(event) {       
-          if($this.val().length >= options.maxChars)
+          if($this.val().length >= options.maxChars && options.hardLimit)
             $this.val($this.val().substr(0, options.maxChars));
           
           setCount();
           
           $this.val().length >= options.warnAt
-            ? $characterCount.addClass(options.warnClass)
+            ? $characterCount.addClass(options.warnClass) && options.onWarn.call($this)
             : $characterCount.removeClass(options.warnClass);
           
           $this.val().length >= options.maxChars
-            ? $characterCount.addClass(options.maxClass)
+            ? $characterCount.addClass(options.maxClass) && options.onMax.call($this)
             : $characterCount.removeClass(options.maxClass);
           
           options.callback.call($this);
         }
-        
+
         $this
           .bind('keydown keyup keypress', count)
           .bind('focus paste', function(){setTimeout(count);});
